@@ -1,0 +1,33 @@
+{
+  "task": [{
+      "idx": 0,
+      "title": "물 마시기",
+      "checked": false
+    },
+    {
+      "idx": 1,
+      "title": "조깅하기",
+      "checked": false
+    },
+    {
+      "idx": 2,
+      "title": "강아지 밥 주기",
+      "checked": true
+    },
+    {
+      "idx": 3,
+      "title": "항해99 출석체크하기",
+      "checked": true
+    },
+    {
+      "idx": 4,
+      "title": "항해일지에 스티커 붙이기",
+      "checked": false
+    },
+    {
+      "idx": 5,
+      "title": "게더 접속하기",
+      "checked": false
+    }
+  ]
+}
