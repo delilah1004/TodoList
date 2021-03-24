@@ -1,7 +1,7 @@
 {
   "task": [{
       "idx": 0,
-      "title": "물 마시기",
+      "title": "양치/세수하기",
       "checked": false
     },
     {
@@ -11,7 +11,7 @@
     },
     {
       "idx": 2,
-      "title": "강아지 밥 주기",
+      "title": "씻기",
       "checked": true
     },
     {
@@ -27,6 +27,21 @@
     {
       "idx": 5,
       "title": "게더 접속하기",
+      "checked": false
+    },
+    {
+      "idx": 6,
+      "title": "팀별 일일 계획표 작성하기",
+      "checked": false
+    },
+    {
+      "idx": 7,
+      "title": "알고리즘 문제 풀기",
+      "checked": false
+    },
+    {
+      "idx": 8,
+      "title": "React Native 공부하기",
       "checked": false
     }
   ]
