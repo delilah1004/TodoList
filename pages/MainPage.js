@@ -13,7 +13,6 @@ export default function MainPage() {
   const [ready, setReady] = useState(true)
 
   useEffect(()=>{
-	   
 		//뒤의 1000 숫자는 1초를 뜻함
     //1초 뒤에 실행되는 코드들이 담겨 있는 함수
     setTimeout(()=>{
@@ -24,14 +23,6 @@ export default function MainPage() {
 
   let tasks = state.task;
 
-  const onToggle = key => e => {
-    setState(
-      tasks.map(task =>
-        task.key === key ? {...task, checked: !task.checked} : task,
-      ),
-    );
-  };
-
   return ready ? <Loading/> : (
     <ScrollView style={styles.scrollView}>
       <StatusBar />
@@ -40,7 +31,7 @@ export default function MainPage() {
         {
           tasks.map((task, i) => {
             return (
-              <Item task={task} key={i} onToggle={onToggle}/>
+              <Item task={task} key={i}/>
             )
           })
         }

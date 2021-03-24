@@ -1,10 +1,8 @@
 import React, { useState } from 'react'
-// import CheckBox from 'react-native-check-box'
 import { Checkbox } from 'react-native-paper';
 import { StyleSheet, View, Text } from 'react-native';
 
-//비구조 할당 방식으로 넘긴 속성 데이터를 꺼내 사용함
-export default function Item({ task, onToggle, key }) {
+export default function Item({ task }) {
 
   const [checked, setChecked] = useState(task.checked);
 
