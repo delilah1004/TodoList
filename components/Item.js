@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { Checkbox } from 'react-native-paper';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 export default function Item({ task }) {
 
-  const [checked, setChecked] = useState(task.checked);
+  const [checked, setChecked] = useState(false);
 
   return (
     <View
@@ -15,8 +15,9 @@ export default function Item({ task }) {
           setChecked(!checked);
         }}
         color="#262C74"
+        uncheckedColor="#262C74"
       />
-      <Text 
+      <Text
         style={[checked ? styles.strikeText : styles.unstrikeText]}>{task.title}</Text>
     </View>
   )
@@ -24,18 +25,21 @@ export default function Item({ task }) {
 
 const styles = StyleSheet.create({
   item: {
-    flex: 1,
-    flexDirection: "row",
-    paddingVertical: 10,
-    borderBottomWidth: 0.5,
-    borderBottomColor: '#eee',
-    alignItems: "center"
+    flexDirection: 'row',
+    backgroundColor: '#FFF',
+    marginBottom: 10,
+    paddingHorizontal: 20,
+    paddingVertical: 15,
+    alignItems: 'center',
+    borderRadius: 10
   },
   strikeText: {
     color: '#bbb',
+    fontFamily: 'Montserrat_100Thin',
     textDecorationLine: 'line-through',
   },
   unstrikeText: {
+    fontFamily: 'Montserrat_100Thin',
     color: '#29323c',
   }
 })

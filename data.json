@@ -1,48 +1,39 @@
 {
   "task": [{
       "idx": 0,
-      "title": "양치/세수하기",
-      "checked": false
+      "title": "양치/세수하기"
     },
     {
       "idx": 1,
-      "title": "조깅하기",
-      "checked": false
+      "title": "조깅하기"
     },
     {
       "idx": 2,
-      "title": "씻기",
-      "checked": true
+      "title": "씻기"
     },
     {
       "idx": 3,
-      "title": "항해99 출석체크하기",
-      "checked": true
+      "title": "항해99 출석체크하기"
     },
     {
       "idx": 4,
-      "title": "항해일지에 스티커 붙이기",
-      "checked": false
+      "title": "항해일지에 스티커 붙이기"
     },
     {
       "idx": 5,
-      "title": "게더 접속하기",
-      "checked": false
+      "title": "게더 접속하기"
     },
     {
       "idx": 6,
-      "title": "팀별 일일 계획표 작성하기",
-      "checked": false
+      "title": "팀별 일일 계획표 작성하기"
     },
     {
       "idx": 7,
-      "title": "알고리즘 문제 풀기",
-      "checked": false
+      "title": "알고리즘 문제 풀기"
     },
     {
       "idx": 8,
-      "title": "React Native 공부하기",
-      "checked": false
+      "title": "React Native 공부하기"
     }
   ]
 }
