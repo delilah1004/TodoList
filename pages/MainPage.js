@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, ScrollView, View, Text } from 'react-native';
+import { StyleSheet, ScrollView, View, Text, Image } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { LinearGradient } from 'expo-linear-gradient';
 import data from '../data.json'
 import Item from '../components/Item';
 import Loading from '../components/Loading';
+import ParticleBackground from "react-native-particle-background";
 
 export default function MainPage() {
   console.disableYellowBox = true;
@@ -24,23 +25,45 @@ export default function MainPage() {
 
   let tasks = state.task;
 
+  const date = new Date();
+
+  let day = ['일', '월', '화', '수', '목', '금', '토']
+
   return ready ? <Loading /> : (
     <View style={styles.container}>
       <LinearGradient
-        colors={['#6FA8B4', '#83B8C4', '#A3CCD0']}
+        colors={['#93B0FF', '#B89AFA']}
         style={styles.background} />
       <StatusBar style="light" />
+      <View style={styles.background}>
+        <ParticleBackground
+          particleColor="#FFF"
+          particleSize={8}
+          particleDispersion={32}
+        />
+      </View>
       <Text style={styles.title}>TO DO LIST</Text>
-      <ScrollView
-        showsVerticalScrollIndicator={false}>
-        {
-          tasks.map((task, i) => {
-            return (
-              <Item task={task} key={i} />
-            )
-          })
-        }
-      </ScrollView>
+      {/* <Text style={styles.title}>TODAY</Text>
+      <Text style={styles.title}>계획을 달성하자!</Text> */}
+      {/* <Image 
+        style={styles.image}
+        source={'../assets/alien.gif'}/> */}
+      <View style={styles.list}>
+        <ScrollView
+          showsVerticalScrollIndicator={false}>
+          <View style={styles.spaceTop}>
+            <Text style={styles.today}>{date.getFullYear()}년 {date.getMonth()+1}월 {date.getDate()}일 {day[date.getDay()]}요일</Text>
+          </View>
+          {
+            tasks.map((task, i) => {
+              return (
+                <Item task={task} key={i} />
+                )
+            })
+          }
+          <View style={styles.space}></View>
+        </ScrollView>
+      </View>
     </View>
   )
 }
@@ -48,7 +71,6 @@ export default function MainPage() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: 30,
     paddingTop: 40
   },
   background: {
@@ -58,16 +80,39 @@ const styles = StyleSheet.create({
     top: 0,
     height: '110%',
   },
+  image: {
+    width: '100%',
+    height: '20%'
+  },
   title: {
     paddingVertical: 20,
-    fontSize: 20,
-    fontFamily: 'MontserratSubrayada_400Regular',
+    fontSize: 30,
+    fontFamily: 'Montserrat_600SemiBold',
     color: '#FFF',
     textAlign: 'center'
   },
-  subTitle: {
-    padding: 10,
-    fontFamily: 'MontserratSubrayada_400Regular',
+  spaceTop: {
+    marginHorizontal: 10,
+    paddingVertical: 20,
+    borderBottomWidth: 2,
+    borderColor: '#EEE',
+    alignItems: 'center'
+  },
+  today: {
+    marginTop: 5,
+    fontSize: 20,
+    fontFamily: 'Sunflower_500Medium',
     color: '#FFF'
+  },
+  list: {
+    flex: 1,
+    backgroundColor: '#BDB1F6',
+    paddingHorizontal: 30,
+    borderTopStartRadius: 30,
+    borderTopEndRadius: 30
+  },
+  space: {
+    width: '100%',
+    height: 20
   }
 })

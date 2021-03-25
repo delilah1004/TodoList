@@ -27,19 +27,21 @@ const styles = StyleSheet.create({
   item: {
     flexDirection: 'row',
     backgroundColor: '#FFF',
-    marginBottom: 10,
+    marginTop: 10,
     paddingHorizontal: 20,
-    paddingVertical: 15,
+    paddingVertical: 10,
     alignItems: 'center',
-    borderRadius: 10
+    borderRadius: 30
   },
   strikeText: {
     color: '#bbb',
-    fontFamily: 'Montserrat_100Thin',
+    fontSize: 18,
+    fontFamily: 'Gaegu_400Regular',
     textDecorationLine: 'line-through',
   },
   unstrikeText: {
-    fontFamily: 'Montserrat_100Thin',
+    fontSize: 18,
+    fontFamily: 'Gaegu_400Regular',
     color: '#29323c',
   }
 })
