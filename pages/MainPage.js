@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, ScrollView, View, Text, Image } from 'react-native';
+import { StyleSheet, ScrollView, View, Text, ImageBackground } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
-import { LinearGradient } from 'expo-linear-gradient';
 import data from '../data.json'
 import Item from '../components/Item';
 import Loading from '../components/Loading';
-import ParticleBackground from "react-native-particle-background";
+import bg from '../assets/bg_particle.png';
 
 export default function MainPage() {
   console.disableYellowBox = true;
@@ -20,7 +19,7 @@ export default function MainPage() {
     setTimeout(() => {
       setState(data)
       setReady(false)
-    }, 1000)
+    }, 2000)
   }, [])
 
   let tasks = state.task;
@@ -31,29 +30,16 @@ export default function MainPage() {
 
   return ready ? <Loading /> : (
     <View style={styles.container}>
-      <LinearGradient
-        colors={['#93B0FF', '#B89AFA']}
-        style={styles.background} />
-      <StatusBar style="light" />
-      <View style={styles.background}>
-        <ParticleBackground
-          particleColor="#FFF"
-          particleSize={8}
-          particleDispersion={32}
-        />
-      </View>
-      <Text style={styles.title}>TO DO LIST</Text>
-      {/* <Text style={styles.title}>TODAY</Text>
-      <Text style={styles.title}>계획을 달성하자!</Text> */}
-      {/* <Image 
-        style={styles.image}
-        source={'../assets/alien.gif'}/> */}
+      <ImageBackground source={bg} style={styles.background}></ImageBackground>
+      <StatusBar style="auto" />
+      <Text style={styles.topText}>TO DO LIST</Text>
+      <View style={styles.imageSpace}></View>
       <View style={styles.list}>
+        <View style={styles.spaceTop}>
+          <Text style={styles.today}>{date.getFullYear()}년 {date.getMonth()+1}월 {date.getDate()}일 {day[date.getDay()]}요일</Text>
+        </View>
         <ScrollView
           showsVerticalScrollIndicator={false}>
-          <View style={styles.spaceTop}>
-            <Text style={styles.today}>{date.getFullYear()}년 {date.getMonth()+1}월 {date.getDate()}일 {day[date.getDay()]}요일</Text>
-          </View>
           {
             tasks.map((task, i) => {
               return (
@@ -71,45 +57,42 @@ export default function MainPage() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 40
+    marginTop: 40
   },
   background: {
     position: 'absolute',
     left: 0,
     right: 0,
     top: 0,
-    height: '110%',
+    height: '100%',
   },
-  image: {
-    width: '100%',
-    height: '20%'
-  },
-  title: {
-    paddingVertical: 20,
-    fontSize: 30,
+  topText: {
+    marginTop: 30,
+    marginBottom: 20,
     fontFamily: 'Montserrat_600SemiBold',
     color: '#FFF',
     textAlign: 'center'
   },
+  imageSpace: {
+    width: '100%',
+    height: 150
+  },
   spaceTop: {
-    marginHorizontal: 10,
-    paddingVertical: 20,
+    paddingVertical: 5,
     borderBottomWidth: 2,
     borderColor: '#EEE',
     alignItems: 'center'
   },
   today: {
-    marginTop: 5,
+    marginVertical: 10,
     fontSize: 20,
-    fontFamily: 'Sunflower_500Medium',
+    fontFamily: 'Gaegu_700Bold',
     color: '#FFF'
   },
   list: {
     flex: 1,
-    backgroundColor: '#BDB1F6',
-    paddingHorizontal: 30,
-    borderTopStartRadius: 30,
-    borderTopEndRadius: 30
+    height: '100%',
+    paddingHorizontal: 30
   },
   space: {
     width: '100%',
